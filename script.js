@@ -16,11 +16,14 @@ form.addEventListener('submit', (e) => {
 
   const msg = `Client Name: ${clientName}\nCell No: ${cellNo}\nEmail: ${email}\nMac Number: ${macNumber}\nMag Line: ${magLine}\nMag Box: ${magBox}\nSubrogation Date: ${subrogationDate}\nAmount Paid: ${amountPaid}\nStarting Date: ${startingDate}\nStatus: ${status}`;
 
-  // Send email using EmailJS
   emailjs.send('gmail', 'client-form', {
     to_name: 'Pelica00971',
     to_email: 'pelica00971@gmail.com',
     subject: 'New Client Form Submission',
     message: msg
+  }).then(() => {
+    alert('Email sent successfully!');
+  }).catch((error) => {
+    alert('Failed to send email: ' + error.message);
   });
 });
